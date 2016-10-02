@@ -12,6 +12,11 @@ class ArticlesController < ApplicationController
   def show
   end
 
+  def mypage
+    @users = User.find(params[:id])
+
+  end
+
   # GET /articles/new
   def new
     @article = Article.new
