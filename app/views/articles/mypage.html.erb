@@ -1,1 +1,19 @@
 <%= current_user.username %>
+
+<% @user.articles.each do |article| %>
+<tr>
+  <td>
+    <%= article.title %>
+  </td>
+  <td>
+    <%= article.description %>
+  </td>
+  <td>
+    <%= article.content %>
+  </td>
+  <td>
+    <%=image_tag article.image.thumb %>
+  </td>
+
+</tr>
+<% end %>

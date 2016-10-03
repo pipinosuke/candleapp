@@ -8,7 +8,7 @@ devise_for :users, :controllers => {
  :registrations => 'users/registrations',
  :sessions => 'users/sessions'
 }
-get '/mypage/:id' => 'articles#mypage'
+get 'mypage/:id' => 'articles#mypage'
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
