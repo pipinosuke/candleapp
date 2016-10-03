@@ -5,7 +5,9 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
+    @new_articles = Article.order(:created_at).limit(5)
   end
+
 
   # GET /articles/1
   # GET /articles/1.json

@@ -1,0 +1,7 @@
+<% @new_articles.each do |article| %>
+  <tr>
+    <h3><%= article.title %></h3><br>
+
+    <td><%= link_to image_tag("#{article.image.thumb.url}"),article %></td><br>
+  </tr>
+<% end %>
