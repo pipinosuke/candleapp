@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy,:mypage]
-  before_filter :signed_in_user, :only => [:edit,:create, :destroy,:mypage]
+before_filter :authenticate_user!, only: [:new, :edit, :update, :destroy,:mypage]
   # GET /articles
   # GET /articles.json
   def index
@@ -78,4 +78,6 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:title, :description, :content, :image,:user_id)
     end
+
+
 end
