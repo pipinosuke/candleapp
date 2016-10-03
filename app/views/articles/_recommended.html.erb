@@ -1,6 +1,11 @@
+<div class="">
+  <h1>本日のおすすめ記事</h1>
+</div>
+
 <% @new_articles.each do |article| %>
   <tr>
-    <h3><%= article.title %></h3><br>
+    <h4><%= article.title %></h4>
+  <br>
 
     <td><%= link_to image_tag("#{article.image.thumb.url}"),article %></td><br>
   </tr>
