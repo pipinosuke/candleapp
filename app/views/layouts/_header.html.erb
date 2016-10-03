@@ -1,4 +1,6 @@
 <header>
+  <div class="header-right">
+
   <nav>
     <!-- user_signed_in? はユーザがログインしているか調べるdeviseのHelperメソッド -->
     <% if user_signed_in? %>
@@ -13,6 +15,7 @@
       <%= link_to "サインイン", new_user_registration_path %> |
       <%= link_to "ログイン", new_user_session_path %>
     <% end %>
+    </div>
     <div class="header-img">
       <a href="/"><img src="http://image.topicks.jp/assets/topicks_logo.png" alt="Topicksのロゴマーク"></a>
     </div>
