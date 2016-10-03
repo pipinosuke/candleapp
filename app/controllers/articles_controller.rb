@@ -13,8 +13,8 @@ class ArticlesController < ApplicationController
   end
 
   def mypage
-    @users = User.find(params[:id])
-
+    @user = User.find(params[:id])
+    @articles=current_user.articles.find(params[:id])
   end
 
   # GET /articles/new
@@ -74,6 +74,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :description, :content, :image)
+      params.require(:article).permit(:title, :description, :content, :image,:user_id)
     end
 end
