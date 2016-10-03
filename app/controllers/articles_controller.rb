@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
 
   def mypage
     @user = User.find(params[:id])
-    @articles=current_user.articles.find(params[:id])
+    @articles=current_user.articles
   end
 
   # GET /articles/new
