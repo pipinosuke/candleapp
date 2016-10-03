@@ -1,8 +1,8 @@
 <%= current_user.username %>さんが作ったまとめ記事です<br><br>
 
 <% @user.articles.each do |article| %>
-    <%=image_tag article.image.thumb %>
-  <h1><%= article.title %></h1>
+    <%=image_tag article.image.thumb %><h1><%= article.title %></h1>
     <%= article.description %> <br>
     <%= article.content %> <br><br>
+    <%= link_to '編集', edit_article_path(article) %>
 <% end %>

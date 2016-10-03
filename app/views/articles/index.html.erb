@@ -1,21 +1,29 @@
 <div class="main">
 
-</div>
-<table>
+<table class="table-left" width="500">
 
   <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.description %></td>
-        <td><%= article.content %></td>
-        <td><%= link_to image_tag("#{article.image.thumb.url}"),article %></td>
-      </tr>
+    <% @articles[0..1].each do |article| %>
+
+        <td><%= link_to image_tag("#{article.image.thumb.url}"),article %></td><tr>
+        <td><h3><%= article.title %></h3></td><tr>
+        <td><h4><%= article.description %><h4></td><tr>
+        <td><h5><%= article.content %></h5></td><tr>
+    <% end %>
+  </tbody>
+</table>
+<table class="table-right"  width="500">
+
+  <tbody>
+    <% @articles[3..4].each do |article| %>
+    <td><%= link_to image_tag("#{article.image.thumb.url}"),article %></td><tr>
+    <td><h3><%= article.title %></h3></td><tr>
+    <td><h4><%= article.description %><h4></td><tr>
+    <td><h5><%= article.content %></h5></td><tr>
     <% end %>
   </tbody>
 </table>
 </div>
-
 <div class="side-bar">
   <%= render 'articles/recommended' %>
 </div>

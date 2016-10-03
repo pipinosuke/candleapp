@@ -1,13 +1,13 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_article, only: [:show, :edit, :update, :destroy,:mypage]
+  before_filter :signed_in_user, :only => [:edit,:create, :destroy,:mypage]
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    #@articles=Article.order(:created_at).limit(8)
+    @articles = Article.order("RANDOM()").limit(8)
     @new_articles = Article.order(:created_at).limit(5)
   end
-
 
   # GET /articles/1
   # GET /articles/1.json
@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
+        format.html { redirect_to @article, notice: '記事が作成されました' }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new }
@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+        format.html { redirect_to @article, notice: '記事がアップデートされました。' }
         format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit }
