@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
 before_filter :authenticate_user!, only: [:new, :edit, :update, :destroy,:mypage]
   # GET /articles
   # GET /articles.json
+
   def index
     #@articles=Article.order(:created_at).limit(8)
     @articles = Article.order("RANDOM()").limit(8)
@@ -12,6 +13,7 @@ before_filter :authenticate_user!, only: [:new, :edit, :update, :destroy,:mypage
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @new_articles = Article.order(:created_at).limit(5)
   end
 
   def mypage
